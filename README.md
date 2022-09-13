@@ -1,4 +1,5 @@
 [Readme_En.docx](https://github.com/DehaiSong/FVCOMv4.0-MDOwave/files/9557300/Readme_En.docx)
+
 A brief introduction of the MDO-WAVE module coupled with FVCOM V4.0 written by Dr. Dehai Song @ Ocean University of China.
 
 The MDO-WAVE was published by Mellor, Donelan and Oey (2008), which was firstly applied in POM.
@@ -31,6 +32,7 @@ The file “specavs” should be placed to the file input folder.
 
 In rum.nml, it must let WIND_ON = T
 If FLAG_32 =  -DWAVE_ACTIVE is uncommented in make.inc, then the following command lines should be added in run.nml, otherwise they should be removed or commented.
+
 DTWS    =  EXTSTEP_SECONDS*ISPLIT, 
 NC_WAVE_PARA    = F,         
 NC_WAVE_STRESS  = F,       
@@ -39,22 +41,24 @@ NCAV_WAVE_STRESS        = F,
 OBC_WAVE_NUDGING        = F,                       
 OBC_WAVE_FILE   = tst_obc.nc,                     
 OBC_WAVE_NUDGING_TIMESCALE      =  0.0000000E+00, 
+
 An “Estuary” case is given for users’ reference to locate these command lines 
 
 A wave namelist is given in run.nml as:
-&NML_WAVE 
- NITERA  = 3,
- BETA    = 2.2,                  ! spreading constant in fspr; higher beta = narrower spread but recommended value = 2,2 (non-d)
- CIN     = 370.0,                ! sin const. !constants in swin curve fit (non-d)
- SWCON   = 0.33,                 ! sin const. !constants in swin curve fit (non-d)
- ADIS    = 0.925,                ! sdis const. !empirically determined constants in sdisw term (non-d)
- BDIS    = 0.18e-4,              ! sdis const. !empirically determined constants in sdisw term (non-d)
- SWFCT   = 0.2,                  ! factor to decrease swell diss.  ! factor to reduce dissipation for swells (non-d)
- GAMA    = 0.73,                 ! depth-induced breaking const. !empirical constant in formulation of bdis2 (non-d)  
- KPDMAX  = 3.0,                  ! maximum kpd
- EGYMIN  = 1.e-4,                 ! minimum egy    
- SGTMIN  = 0.10,                  ! minimum sgt
- DPMIN_GM  = 0.10                ! minimum depth for waves
- /
+
+&NML_WAVE                     
+NITERA  = 3,                     
+BETA    = 2.2,                  ! spreading constant in fspr; higher beta = narrower spread but recommended value = 2,2 (non-d)                     
+CIN     = 370.0,                ! sin const. !constants in swin curve fit (non-d)                     
+SWCON   = 0.33,                 ! sin const. !constants in swin curve fit (non-d)                     
+ADIS    = 0.925,                ! sdis const. !empirically determined constants in sdisw term (non-d)                     
+BDIS    = 0.18e-4,              ! sdis const. !empirically determined constants in sdisw term (non-d)                     
+SWFCT   = 0.2,                  ! factor to decrease swell diss.  ! factor to reduce dissipation for swells (non-d)                     
+GAMA    = 0.73,                 ! depth-induced breaking const. !empirical constant in formulation of bdis2 (non-d)                     
+KPDMAX  = 3.0,                  ! maximum kpd                     
+EGYMIN  = 1.e-4,                ! minimum egy                     
+SGTMIN  = 0.10,                 ! minimum sgt                    
+DPMIN_GM  = 0.10                ! minimum depth for waves                           
+/
 
 If users find any bugs in the code or have any problems, please let me know through the email: songdh@ouc.edu.cn. We are happy to make FVCOM more robust and more efficient together. 
