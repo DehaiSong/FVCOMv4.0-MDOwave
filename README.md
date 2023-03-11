@@ -28,7 +28,7 @@ The subroutine botdrag in mod_wave.F provides three ways to calculate the wave-c
 We also provides two kinds of boundary conditions for waves in mod_wave.F:
 OBC_WAVE_NUDGING = T considering the open boundary swells, and
 OBC_WAVE_NUDGING = F not considering the open boundary swells.
-If the former, the significant wave height (hsig), wave direction (wdir), and peak wave period (tpek) should be provided at the open boundary nodes, which is written in a netcdf file, similar to the open boundary elevation. 
+If the former, the significant wave height (hsig), wave direction (wdir), and peak wave period (tpek) should be provided at the open boundary nodes, which is written in a netcdf file, similar to the open boundary elevation. An Matlab code (write_waveobc.m) to create the wave open boundary file is given for reference. 
 
 The file “specavs” should be placed to the file input folder.
 
